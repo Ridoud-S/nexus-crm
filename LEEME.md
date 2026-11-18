@@ -28,23 +28,16 @@ Este repo está listo para Vercel sin configuración: detecta Vite solo. Si tien
 
 Rutas que quedan publicadas:
 
-- `/` — la aplicación.
-- `/landing.html` — la landing con los precios.
+- `/` — la landing con los precios.
+- `/app` — la aplicación.
 
-Si prefieres que la landing sea la portada y la app quede en `/app`, crea un archivo `vercel.json` en la raíz con esto:
-
-```json
-{
-  "rewrites": [
-    { "source": "/", "destination": "/landing.html" },
-    { "source": "/app", "destination": "/index.html" }
-  ]
-}
-```
+Los botones "Ver demo" y "Comenzar gratis" de la landing ya apuntan a `/app`.
 
 ## Estructura
 
 ```
+index.html                   La landing (entrada de `/`)
+app/index.html               Entrada de la aplicación (`/app`)
 src/
 ├── main.jsx                 Punto de entrada
 ├── index.css                Tailwind + animaciones + estilos de impresión
@@ -53,10 +46,10 @@ src/
     ├── ui.jsx               Primitivos, chat y bloques del agente
     ├── board.jsx            Kanban, ficha del prospecto, cotización
     └── app.jsx              Dashboard, agente, sidebar y App
-public/
-├── landing.html             Landing con precios (archivo único)
-└── marca/                   Ícono, logo, robot, banner y avatar en .webp
+public/marca/                Ícono, logo, robot, banner y avatar en .webp
 ```
+
+Las dos páginas se compilan juntas con `npm run build`; la configuración está en `vite.config.js`.
 
 ## Lo pendiente
 
